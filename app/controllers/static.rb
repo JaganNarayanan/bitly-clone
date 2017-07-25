@@ -18,7 +18,7 @@ post '/urls' do
   if @url.save
     redirect '/'
   else
-    @errors = @url.errors
+    @errors = @url.errors.full_messages
   end
   erb :"static/index"
 end

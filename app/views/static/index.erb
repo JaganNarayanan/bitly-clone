@@ -1,9 +1,8 @@
 <h1>Bitly</h1>
 <!--<p>See Me in views/static/index.html.erb</p>
 <a href="/about">Click here to go to about page!</a> -->
-<% if @errors[:long] %>
-  <p>Long url is invalid or empty.</p>
-<% end %>
+<%= ("URL" + " #{@errors[0].split[1..-1].join(" ")}.") if @errors %>
+
 
 <form action="/urls" method="post">
   Enter URL:
