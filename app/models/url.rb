@@ -1,14 +1,12 @@
 require 'uri'
 
 class Url < ActiveRecord::Base
-  # validate :validate_url?
+  validates :long, presence: true
+  validates :long, format: { with: URI.regexp }, if: 'long.present?'
   before_save :shorten
-	# # This is Sinatra! Remember to create a migration!
-  # def valid_url?(uri)
-  #   uri = URI.parse(uri) && !uri.host.nil?
-  # rescue URI::InvalidURIError
-  #   false
-  # end
+	# This is Sinatra! Remember to create a migration!
+
+
 
   def shorten
     self.short = SecureRandom.hex(10)
