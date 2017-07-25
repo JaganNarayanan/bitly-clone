@@ -1,6 +1,9 @@
 <h1>Bitly</h1>
 <!--<p>See Me in views/static/index.html.erb</p>
 <a href="/about">Click here to go to about page!</a> -->
+<% if @errors[:long] %>
+  <p>Long url is invalid or empty.</p>
+<% end %>
 
 <form action="/urls" method="post">
   Enter URL:
@@ -13,4 +16,5 @@
   <p><a href="<%= url.long %>"><%=url.long%> </a></p>
   <p><a href="<%= url.short %>"><%="http://localhost:9393/" + url.short%> </a></p>
 <% end %> <!-- things that you want to show, use the = sign after the <% -->
+
 </ul>

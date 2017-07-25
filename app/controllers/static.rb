@@ -18,13 +18,20 @@ post '/urls' do
   if @url.save
     redirect '/'
   else
-    @errors = @url.errors.full_messages 
+    @errors = @url.errors
   end
+  erb :"static/index"
 end
 
 get '/:short' do
+  #puts "[LOG] #{params[:short]}"
   row = Url.find_by(short: "#{params[:short]}")
+    #puts "[LOG] #{row}"
+
+  row.update(click_count: row.click_count + 1)
+  # id = row.id
   @long_url = row.long
+  # counter_update = row.click_count + 1
+  # Url.update(id, :click_count => counter_update)
   redirect "#{@long_url}"
-  #erb :"static/redirect"
 end
