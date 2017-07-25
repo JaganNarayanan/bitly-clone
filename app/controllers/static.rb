@@ -14,9 +14,12 @@ get "/posts" do
 end
 
 post '/urls' do
-  url = Url.new(long: params[:long])
-  url.save
-  redirect '/'
+  @url = Url.new(long: params[:long])
+  if @url.save
+    redirect '/'
+  else
+    @errors = @url.errors.full_messages 
+  end
 end
 
 get '/:short' do

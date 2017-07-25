@@ -8,7 +8,9 @@
   <input type="submit" value="Submit">
 </form>
 
+<ul>
 <% Url.all.each_with_index do |url, index| %>
   <p><a href="<%= url.long %>"><%=url.long%> </a></p>
   <p><a href="<%= url.short %>"><%="http://localhost:9393/" + url.short%> </a></p>
-<% end %>
+<% end %> <!-- things that you want to show, use the = sign after the <% -->
+</ul>
