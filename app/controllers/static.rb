@@ -1,4 +1,6 @@
 get '/' do #'/' usually refers to 'root path' in programming, i.e. the beginning of everything
+  puts "[LOG] Getting /"
+  puts "[LOG] Params: #{params.inspect}"
   erb :"static/index"
 end
 

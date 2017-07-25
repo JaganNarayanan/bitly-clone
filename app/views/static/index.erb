@@ -10,5 +10,5 @@
 
 <% Url.all.each_with_index do |url, index| %>
   <p><a href="<%= url.long %>"><%=url.long%> </a></p>
-  <p><a href="<%= url.short %>"><%=url.short%> </a></p>
+  <p><a href="<%= url.short %>"><%="http://localhost:9393/" + url.short%> </a></p>
 <% end %>
