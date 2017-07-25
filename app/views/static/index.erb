@@ -1,2 +1,14 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>Bitly</h1>
+<!--<p>See Me in views/static/index.html.erb</p>
+<a href="/about">Click here to go to about page!</a> -->
+
+<form action="/urls" method="post">
+  Enter URL:
+  <input type="text" name="long">
+  <input type="submit" value="Submit">
+</form>
+
+<% Url.all.each_with_index do |url, index| %>
+  <p><a href="<%= url.long %>"><%=url.long%> </a></p>
+  <p><a href="<%= url.short %>"><%=url.short%> </a></p>
+<% end %>

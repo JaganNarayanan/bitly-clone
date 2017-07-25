@@ -1,4 +1,4 @@
-require 'rake'
+require 'rake' 
 require 'rspec/core/rake_task'
 
 # Include environment settings
