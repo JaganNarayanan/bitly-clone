@@ -13,7 +13,7 @@
 <div class="sub-heading">
   Measure your links with Bitly, the world's leading customer experience platform.
 </div>
-<form action="/urls" method="post" style="width:75%;margin:0 auto;">
+<form action="/urls" method="post" style="width:100%;margin:0 auto;">
   <div class="row" style="width:100%">
     <div class="col-md-offset-3 col-md-6">
       <div class="input-group input-group-lg">
@@ -51,7 +51,7 @@
     </tr>
   </thead>
   <tbody>
-      <% Url.all.each_with_index do |url, index| %>
+      <% Url.order(click_count: :desc).each_with_index do |url, index| %>
       <tr>
       <td style = "text-align: center" scope="row"><%= index + 1 %></td>
       <td><a href="<%= url.long %>"><%=url.long%> </a></td>
