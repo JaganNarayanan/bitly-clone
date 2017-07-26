@@ -1,35 +1,63 @@
 
 <!--<p>See Me in views/static/index.html.erb</p>
 <a href="/about">Click here to go to about page!</a> -->
-<%= ("URL" + " #{@errors[0].split[1..-1].join(" ")}.") if @errors %>
+<!-- # <%= ("URL" + " #{@errors[0].split[1..-1].join(" ")}.") if @errors %> -->
+<% if @errors %>
+<div class="alert alert-info" role="alert">
+  <strong>Oops! <%=("URL" + " #{@errors[0].split[1..-1].join(" ")}.")%></strong>
+</div> -->
+<%end%>
 <h1 class = "center">
   THE LINK KNOWS ALL. SO CAN YOU.
 </h1>
 <div class="sub-heading">
   Measure your links with Bitly, the world's leading customer experience platform.
 </div>
-<form action="/urls" method="post">
-  <div class="col-md-6 positioning">
-    <div class="input-group input-group-lg positioning">
-      <input type="text" class="form-control" name = "long" placeholder="Paste a link to shorten it" style="height:75px">
-      <span class="input-group-btn">
-        <button class="btn button-large btn-warning" type="submit" style="height:75px">SHORTEN</button>
-      </span>
-    </div>
+<form action="/urls" method="post" style="width:75%;margin:0 auto;">
+  <div class="row" style="width:100%">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" name = "long" placeholder="Paste a link to shorten it" style="height:75px">
+        <span class="input-group-btn">
+          <button class="btn button-large btn-warning" type="submit" style="height:75px">SHORTEN</button>
+        </span>
+      </div>
     </div>
   </div>
+  </div>
 </form>
+
 <!-- <form action="/urls" method="post">
   Enter URL:
   <input type="text" name="long">
   <input type="submit" value="Submit">
 </form> -->
-
+<!--
 <ul>
 <% Url.all.each_with_index do |url, index| %>
   <p><a href="<%= url.long %>"><%=url.long%> </a></p>
   <p><a href="<%= url.short %>"><%="http://localhost:9393/" + url.short%> </a></p>
   <p>Click counts: <%= url.click_count %></p>
-<% end %> <!-- things that you want to show, use the = sign after the <% -->
+<% end %> -->
 
-</ul>
+<!-- </ul> -->
+<table class="table table-hover table-design table-striped table-condensed table-responsive table-bordered">
+  <thead>
+    <tr>
+      <th class="th-schema">No.</th>
+      <th class="th-schema">Long URL</th>
+      <th class="th-schema">Short URL</th>
+      <th class="th-schema">Visits</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% Url.all.each_with_index do |url, index| %>
+      <tr>
+      <td style = "text-align: center" scope="row"><%= index + 1 %></td>
+      <td><a href="<%= url.long %>"><%=url.long%> </a></td>
+      <td><a href="<%= url.short %>"><%="http://localhost:9393/" + url.short%> </a></td>
+      <td style="text-align: center"><%= url.click_count %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>

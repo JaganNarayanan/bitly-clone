@@ -7,12 +7,14 @@ body {
 }
 
 .positioning {
+  /*position: static;*/
   width: 75%;
-  position: static;
-  margin-left:125px;
+  margin-left:auto;
   margin-right:auto;
   margin-bottom: 30px;
   margin-top: 15px;
+  position: relative;
+  float: center;
 }
 
 .center {
@@ -46,17 +48,24 @@ body {
 .logo {
   width: 90px;
   height: 90px;
-  position: fixed;
+  position: relative;
   float: left;
   margin-left: 95px;
   margin-top: -160px;
 
 }
-/*width:10px;height:10px;position:fixed;
 
-.right {
-    float: right;
-    width: 300px;
-    border: 3px solid #73AD21;
-    padding: 10px;
-}*/
+.th-schema {
+    background-color: #FF8800;
+    color: white;
+    text-align: center;
+}
+.td-schema {
+  text-align: center;
+}
+.table-design {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 250px;
+  width: 50px ;
+}
