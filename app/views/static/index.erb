@@ -1,19 +1,35 @@
-<h1>Bitly</h1>
+
 <!--<p>See Me in views/static/index.html.erb</p>
 <a href="/about">Click here to go to about page!</a> -->
 <%= ("URL" + " #{@errors[0].split[1..-1].join(" ")}.") if @errors %>
-
-
+<h1 class = "center">
+  THE LINK KNOWS ALL. SO CAN YOU.
+</h1>
+<div class="sub-heading">
+  Measure your links with Bitly, the world's leading customer experience platform.
+</div>
 <form action="/urls" method="post">
+  <div class="col-md-6 positioning">
+    <div class="input-group input-group-lg positioning">
+      <input type="text" class="form-control" name = "long" placeholder="Paste a link to shorten it" style="height:75px">
+      <span class="input-group-btn">
+        <button class="btn button-large btn-warning" type="submit" style="height:75px">SHORTEN</button>
+      </span>
+    </div>
+    </div>
+  </div>
+</form>
+<!-- <form action="/urls" method="post">
   Enter URL:
   <input type="text" name="long">
   <input type="submit" value="Submit">
-</form>
+</form> -->
 
 <ul>
 <% Url.all.each_with_index do |url, index| %>
   <p><a href="<%= url.long %>"><%=url.long%> </a></p>
   <p><a href="<%= url.short %>"><%="http://localhost:9393/" + url.short%> </a></p>
+  <p>Click counts: <%= url.click_count %></p>
 <% end %> <!-- things that you want to show, use the = sign after the <% -->
 
 </ul>
