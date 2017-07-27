@@ -1,7 +1,7 @@
 require 'uri'
 
 class Url < ActiveRecord::Base
-  validates :long, presence: true
+  validates :long, presence: true, uniqueness: true 
   validates :long, format: { with: URI.regexp }, if: 'long.present?'
   before_create :shorten
 	# This is Sinatra! Remember to create a migration!

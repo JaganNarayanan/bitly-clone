@@ -16,7 +16,8 @@ end
 post '/urls' do
   @url = Url.new(long: params[:long])
   if @url.save
-    redirect '/'
+    # redirect '/'
+    @url.to_json
   else
     @errors = @url.errors.full_messages
   end
