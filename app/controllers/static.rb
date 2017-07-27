@@ -17,11 +17,12 @@ post '/urls' do
   @url = Url.new(long: params[:long])
   if @url.save
     # redirect '/'
-    @url.to_json
+    return @url.to_json
   else
     @errors = @url.errors.full_messages
+    erb :"static/index"
   end
-  erb :"static/index"
+
 end
 
 get '/:short' do

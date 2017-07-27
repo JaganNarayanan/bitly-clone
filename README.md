@@ -1,6 +1,30 @@
+$('tbody').append(
+	"<tr>\
+	<td style = 'text-align: center' scope='row'><%= index + 1 %></td>\
+	<td><a href='<%= url.long %>'><%=url.long%> </a></td>\
+	<td><a href='<%= url.short %>'><%='http://localhost:9393/' + url.short%> </a></td>\
+	<td style='text-align: center'><%= url.click_count %></td>\
+	</tr>"
+)
+
+
+"<tr>\
+<td style = 'text-align: center' scope='row'><%= index + 1 %></td>\
+<td><a href='<%= url.long %>'><%=url.long%> </a></td>\
+<td><a href='<%= url.short %>'><%='http://localhost:9393/' + url.short%> </a></td>\
+<td style='text-align: center'><%= url.click_count %></td>\
+</tr>"
+
+
+<tr>
+<td style = 'text-align: center' scope='row'><%= index + 1 %></td>
+<td><a href='<%= url.long %>'><%=url.long%> </a></td>
+<td><a href='<%= url.short %>'><%='http://localhost:9393/' + url.short%> </a></td>
+<td style='text-align: center'><%= url.click_count %></td>
+</tr>
 #Sinatra Web Server
 ## Repo details
-| Details   |  | 
+| Details   |  |
 | :--------------- | -------: |
 | Re-created by: | Holloway, Chew Kean Ho |
 | Version:    | 0.0.9   |
@@ -107,7 +131,7 @@ require 'uri'
 	# Additional Gem includes after this comments
 #######################################################
 ```
-4) Done. You're ready. 
+4) Done. You're ready.
 <br><br>
 
 ### To Create Controller
@@ -185,7 +209,7 @@ helpers do
 	def calculate_square(param)
 		param * param
 	end
-	
+
 	# More repetitive functions
 	...
 end
@@ -220,7 +244,7 @@ Database migration file creation is supported by Rakefile. To create, execute:
 ```
 $ rake generate:migration NAME=<filename>
 ```
->**REMEMBER**: 
+>**REMEMBER**:
 >------be careful with ActiveRecord **naming convention** especially singular/plural!
 
 <br><br>
