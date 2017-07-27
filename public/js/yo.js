@@ -18,8 +18,7 @@ $(document).ready(function(){
         $('tbody').append(
           "<tr>\
           <td>" + "New" + "</td>\
-          <td><a href="+ response.long +">"+ response.long + "</a></td>\
-          <td><a href="+ response.short + ">" + "http://localhost:9393/" + response.short + "</a></td>\
+          <td><a href="+ response.long +">"+ response.long + "</a></td><td><a href="+ response.short + ">" + "http://localhost:9393/" + response.short + "</a></td>\
           <td style='text-align: center'>" + response.click_count + "</td>\
           </tr>"
         )
